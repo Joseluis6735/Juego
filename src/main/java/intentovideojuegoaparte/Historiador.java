@@ -2,7 +2,7 @@ package intentovideojuegoaparte;
 
 
 public class Historiador extends Unidad {
-    public Historiador() {
+    public Historiador(String faccion) {
         super("Historiador", "Letras", 100, 29, 20, 3, 2);
     }
 

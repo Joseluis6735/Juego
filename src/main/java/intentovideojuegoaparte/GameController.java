@@ -91,7 +91,7 @@ public class GameController {
                 Text texto = new Text();
                 if (casilla.estaOcupada()) {
                     Unidad u = casilla.getUnidad();
-                    texto.setText(u.getNombre().substring(0, 1) + "\n" + u.getHP());
+                    texto.setText(u.getNombre().substring(0, 1) + "\n" + u.getHpMax());
                 }
 
                 celda.getChildren().addAll(fondo, texto);
@@ -377,6 +377,7 @@ public class GameController {
 
         // Cerrar la ventana del juego
         Stage stage = (Stage) gridTablero.getScene().getWindow();
+        stage.centerOnScreen(); // Centrar pantalla
         stage.close();
     }
 
@@ -397,8 +398,8 @@ public class GameController {
                 ec.x = i;
                 ec.y = j;
                 ec.costoMovimiento = c.getCostoMovimiento();
-                ec.modDefensa = c.getModificadorDefensa();
-                ec.modMovimiento = c.getModificadorMovimiento();
+                ec.modDefensa = c.getModDefensa();
+                ec.modMovimiento = c.getModMovimiento();
                 estado.casillas.add(ec);
             }
         }
@@ -413,7 +414,7 @@ public class GameController {
             eu.tipo = u.getClass().getSimpleName();
             eu.x = u.getX();
             eu.y = u.getY();
-            eu.hp = u.getHP();
+            eu.hp = u.getHpMax();
             eu.faccion = u.getFaccion();
             estado.unidades.add(eu);
         }
@@ -444,8 +445,8 @@ public class GameController {
         dibujarTablero();
         labelTurno.setText(turnoJugador ? "Tu turno" : "Es turno de la IA");
     }
-
     public void setFaccionJugador(String faccion) {
         this.faccionJugador = faccion;
     }
-}
+
+    }

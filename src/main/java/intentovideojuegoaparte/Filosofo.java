@@ -1,7 +1,7 @@
 package intentovideojuegoaparte;
 
 public class Filosofo extends Unidad {
-    public Filosofo() {
+    public Filosofo(String faccion) {
         super("Filósofo", "Letras", 105, 27, 28, 3, 2);
     }
 

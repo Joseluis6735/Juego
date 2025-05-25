@@ -26,5 +26,8 @@ public class Casilla {
     public void setUnidad(Unidad u) { this.unidad = u; }
 
     public boolean estaLibre() { return unidad == null; }
+    public boolean estaOcupada() { return unidad != null; }
+
 }
+
 

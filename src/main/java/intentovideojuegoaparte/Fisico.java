@@ -2,7 +2,7 @@ package intentovideojuegoaparte;
 
 
 public class Fisico extends Unidad {
-    public Fisico() {
+    public Fisico(String faccion) {
         super("Físico", "Ciencias", 110, 28, 25, 3, 2);
     }
 

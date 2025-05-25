@@ -1,7 +1,7 @@
 package intentovideojuegoaparte;
 
 public class Matematico extends Unidad {
-    public Matematico() {
+    public Matematico(String faccion) {
         super("Matemático", "Ciencias", 100, 30, 20, 3, 2);
     }
 

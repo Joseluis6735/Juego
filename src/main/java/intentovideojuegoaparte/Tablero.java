@@ -29,6 +29,9 @@ public class Tablero {
         if(x < 0 || y < 0 || x >= filas || y >= columnas) return;
     }
 
+    public int getFilas(){return filas;}
+    public int getColumnas(){return columnas;}
+
     public boolean posicionValida(int x, int y) {
         return x >= 0 && y >= 0 && x < filas && y < columnas;
     }
@@ -48,5 +51,18 @@ public class Tablero {
         destino.setUnidad(u);
         u.setPosicion(destX, destY);
         return true;
+    }
+
+    public boolean estaDentroDelTablero(int x, int y) {
+        return x >= 0 && x < filas && y >= 0 && y < columnas;
+    }
+    public boolean puedeMoverUnidad(Unidad unidad, int x, int y) {
+        if (!estaDentroDelTablero(x, y)) return false;
+
+        Casilla destino = getCasilla(x, y);
+        if (destino.estaOcupada()) return false;
+
+        int costo = destino.getCostoMovimiento() + destino.getModMovimiento();
+        return unidad.getRangoMovimiento() >= costo;
     }
 }

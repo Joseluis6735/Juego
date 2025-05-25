@@ -23,11 +23,11 @@ public class Partida {
 
     private void inicializarUnidades() {
         // Para pruebas: 2 unidades de cada facción
-        unidades.add(new Matematico());
-        unidades.add(new Fisico());
+        unidades.add(new Matematico("Ciencias"));
+        unidades.add(new Fisico("Ciencias"));
 
-        unidades.add(new Poeta());
-        unidades.add(new Filosofo());
+        unidades.add(new Poeta("letras"));
+        unidades.add(new Filosofo("letras"));
     }
 
     private void colocarUnidades() {

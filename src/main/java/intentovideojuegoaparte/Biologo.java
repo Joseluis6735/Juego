@@ -1,7 +1,7 @@
 package intentovideojuegoaparte;
 
 public class Biologo extends Unidad {
-    public Biologo() {
+    public Biologo(String faccion) {
         super("Biólogo", "Ciencias", 90, 22, 18, 3, 1);
     }
 

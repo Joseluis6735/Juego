@@ -14,6 +14,8 @@ public abstract class Unidad {
     protected boolean haActuado;
     protected Random random = new Random();
 
+    protected int x, y;
+
     public Unidad(String nombre, String faccion, int hp, int ataque, int defensa, int rangoMovimiento, int rangoAtaque) {
         this.nombre = nombre;
         this.faccion = faccion;
@@ -48,6 +50,9 @@ public abstract class Unidad {
     public void setPosicion(int x, int y) { this.posX = x; this.posY = y; }
     public boolean haActuado() { return haActuado; }
     public void setHaActuado(boolean val) { haActuado = val; }
+
+    public int getX() {return x;}
+    public int getY() {return y;}
 
 
     // Método abstracto para habilidad especial en ataque
@@ -88,4 +93,5 @@ public abstract class Unidad {
     public String toString() {
         return nombre + " (" + faccion + ") HP:" + hpActual + "/" + hpMax + " Atq:" + ataque + " Def:" + defensa;
     }
+    public boolean estaViva() { return hpMax > 0; }
 }

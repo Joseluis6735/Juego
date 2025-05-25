@@ -110,7 +110,10 @@ public class MenuOpcionesController {
             Stage stage = new Stage();
             stage.setTitle("Juego de Turnos");
             stage.setScene(new Scene(root));
+
+            stage.centerOnScreen(); // Centrar ventana
             stage.show();
+
 
             // Cerrar la ventana de opciones
             ((Stage) campoFilas.getScene().getWindow()).close();
@@ -140,7 +143,8 @@ public class MenuOpcionesController {
             Tablero tablero = new Tablero(estado.filas, estado.columnas);
             for (EstadoCasilla ec : estado.casillas) {
                 tablero.setCasilla(ec.x, ec.y,
-                        new Casilla(ec.costoMovimiento, ec.modDefensa, ec.modMovimiento));
+                        new Casilla(ec.x, ec.y, ec.costoMovimiento, ec.modDefensa, ec.modMovimiento));
+                ;
             }
 
             // Reconstruir unidades
@@ -148,7 +152,7 @@ public class MenuOpcionesController {
             for (EstadoUnidad eu : estado.unidades) {
                 Unidad u = crearUnidadDesdeTipo(eu.tipo, eu.faccion);
                 u.setPosicion(eu.x, eu.y);
-                u.hp = eu.hp;
+                u.hpMax = eu.hp;
                 tablero.getCasilla(eu.x, eu.y).setUnidad(u);
                 unidades.add(u);
             }
@@ -167,6 +171,8 @@ public class MenuOpcionesController {
             Stage stage = new Stage();
             stage.setTitle("Partida cargada");
             stage.setScene(new Scene(root));
+
+            stage.centerOnScreen(); // Centrar pantalla
             stage.show();
 
             // Cierra la ventana del menú

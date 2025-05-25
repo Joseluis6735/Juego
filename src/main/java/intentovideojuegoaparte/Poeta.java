@@ -1,7 +1,7 @@
 package intentovideojuegoaparte;
 
 public class Poeta extends Unidad {
-    public Poeta() {
+    public Poeta(String faccion) {
         super("Poeta", "Letras", 95, 25, 20, 3, 2);
     }
 
