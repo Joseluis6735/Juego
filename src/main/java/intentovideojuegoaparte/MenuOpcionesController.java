@@ -1,14 +1,19 @@
 package intentovideojuegoaparte;
 
+import com.google.gson.Gson;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,7 +23,6 @@ public class MenuOpcionesController {
     @FXML private ChoiceBox<String> choiceFaccion;
     @FXML private ChoiceBox<String> choiceUnidad1;
     @FXML private ChoiceBox<String> choiceUnidad2;
-
     @FXML
     public void initialize() {
         choiceFaccion.getItems().addAll("Científicos", "Humanistas");
@@ -28,11 +32,11 @@ public class MenuOpcionesController {
             choiceUnidad2.getItems().clear();
 
             if ("Científicos".equals(newVal)) {
-                choiceUnidad1.getItems().addAll("Ingeniero", "Matematico");
-                choiceUnidad2.getItems().addAll("Ingeniero", "Matematico");
+                choiceUnidad1.getItems().addAll("Ingeniero", "Matematico", "Fisico", "Biologo");
+                choiceUnidad2.getItems().addAll("Ingeniero", "Matematico", "Fisico", "Biologo");
             } else if ("Humanistas".equals(newVal)) {
-                choiceUnidad1.getItems().addAll("Poeta", "Filologo");
-                choiceUnidad2.getItems().addAll("Poeta", "Filologo");
+                choiceUnidad1.getItems().addAll("Poeta", "Filologo", "Filosofo", "Historiador");
+                choiceUnidad2.getItems().addAll("Poeta", "Filologo", "Filosofo", "Historiador");
             }
 
             // Seleccionar por defecto la primera opción
@@ -120,13 +124,71 @@ public class MenuOpcionesController {
         }
     }
 
+    @FXML
+    public void cargarPartida() {
+        File archivo = new File("save/log.json");
+        if (!archivo.exists()) {
+            mostrarAlerta("No hay partida guardada.");
+            return;
+        }
+
+        try (FileReader reader = new FileReader(archivo)) {
+            Gson gson = new Gson();
+            EstadoJuego estado = gson.fromJson(reader, EstadoJuego.class);
+
+            // Reconstruir tablero
+            Tablero tablero = new Tablero(estado.filas, estado.columnas);
+            for (EstadoCasilla ec : estado.casillas) {
+                tablero.setCasilla(ec.x, ec.y,
+                        new Casilla(ec.costoMovimiento, ec.modDefensa, ec.modMovimiento));
+            }
+
+            // Reconstruir unidades
+            List<Unidad> unidades = new ArrayList<>();
+            for (EstadoUnidad eu : estado.unidades) {
+                Unidad u = crearUnidadDesdeTipo(eu.tipo, eu.faccion);
+                u.setPosicion(eu.x, eu.y);
+                u.hp = eu.hp;
+                tablero.getCasilla(eu.x, eu.y).setUnidad(u);
+                unidades.add(u);
+            }
+
+            // Cargar vista del juego
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("game-view.fxml"));
+            Parent root = loader.load();
+
+            GameController controller = loader.getController();
+
+            String faccionSeleccionada = choiceFaccion.getValue();
+            controller.setFaccionJugador(faccionSeleccionada);
+
+            controller.inicializarJuegoDesdeCarga(tablero, unidades, estado.turnoActual, estado.contadorTurnos);
+
+            Stage stage = new Stage();
+            stage.setTitle("Partida cargada");
+            stage.setScene(new Scene(root));
+            stage.show();
+
+            // Cierra la ventana del menú
+            ((Stage) campoFilas.getScene().getWindow()).close();
+
+        } catch (IOException e) {
+            e.printStackTrace();
+            mostrarAlerta("Error al cargar la partida.");
+        }
+    }
+
     private Unidad crearUnidadDesdeTipo(String tipo, String faccion) {
         return switch (tipo) {
             case "Ingeniero" -> new Ingeniero(faccion);
             case "Matematico" -> new Matematico(faccion);
+            case "Fisico" -> new Fisico(faccion);
+            case "Biologo" -> new Biologo(faccion);
             case "Poeta" -> new Poeta(faccion);
             case "Filologo" -> new Filologo(faccion);
-            default -> null;
+            case "Filosofo" -> new Filosofo(faccion);
+            case "Historiador" -> new Historiador(faccion);
+            default -> throw new IllegalArgumentException("Tipo de unidad desconocido: " + tipo);
         };
     }
 

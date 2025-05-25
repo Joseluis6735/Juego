@@ -24,4 +24,5 @@
     <ChoiceBox fx:id="choiceUnidad2" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
 
     <Button text="Iniciar Juego" onAction="#iniciarJuego" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+    <Button text="Cargar Partida" onAction="#cargarPartida" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
 </GridPane>

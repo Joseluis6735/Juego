@@ -5,6 +5,7 @@ module intentovideojuegoaparte {
     requires org.controlsfx.controls;
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
+    requires com.google.gson;
 
     opens intentovideojuegoaparte to javafx.fxml;
     exports intentovideojuegoaparte;

@@ -1,0 +1,381 @@
+{
+  "unidades": [
+    {
+      "tipo": "Ingeniero",
+      "x": 2,
+      "y": 1,
+      "hp": 74,
+      "faccion": "Científicos"
+    },
+    {
+      "tipo": "Matematico",
+      "x": 6,
+      "y": 6,
+      "hp": 80,
+      "faccion": "Científicos"
+    },
+    {
+      "tipo": "Poeta",
+      "x": 1,
+      "y": 1,
+      "hp": 10,
+      "faccion": "Humanistas"
+    },
+    {
+      "tipo": "Filologo",
+      "x": 0,
+      "y": 6,
+      "hp": 10,
+      "faccion": "Humanistas"
+    }
+  ],
+  "casillas": [
+    {
+      "x": 0,
+      "y": 0,
+      "costoMovimiento": 2,
+      "modDefensa": -1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 0,
+      "y": 1,
+      "costoMovimiento": 1,
+      "modDefensa": 0,
+      "modMovimiento": -1
+    },
+    {
+      "x": 0,
+      "y": 2,
+      "costoMovimiento": 1,
+      "modDefensa": -1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 0,
+      "y": 3,
+      "costoMovimiento": 3,
+      "modDefensa": 0,
+      "modMovimiento": 1
+    },
+    {
+      "x": 0,
+      "y": 4,
+      "costoMovimiento": 3,
+      "modDefensa": -1,
+      "modMovimiento": 0
+    },
+    {
+      "x": 0,
+      "y": 5,
+      "costoMovimiento": 2,
+      "modDefensa": 1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 0,
+      "y": 6,
+      "costoMovimiento": 2,
+      "modDefensa": 0,
+      "modMovimiento": -1
+    },
+    {
+      "x": 1,
+      "y": 0,
+      "costoMovimiento": 1,
+      "modDefensa": 1,
+      "modMovimiento": 0
+    },
+    {
+      "x": 1,
+      "y": 1,
+      "costoMovimiento": 2,
+      "modDefensa": 0,
+      "modMovimiento": 1
+    },
+    {
+      "x": 1,
+      "y": 2,
+      "costoMovimiento": 1,
+      "modDefensa": 1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 1,
+      "y": 3,
+      "costoMovimiento": 2,
+      "modDefensa": -1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 1,
+      "y": 4,
+      "costoMovimiento": 3,
+      "modDefensa": -1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 1,
+      "y": 5,
+      "costoMovimiento": 1,
+      "modDefensa": -1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 1,
+      "y": 6,
+      "costoMovimiento": 2,
+      "modDefensa": 1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 2,
+      "y": 0,
+      "costoMovimiento": 1,
+      "modDefensa": 1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 2,
+      "y": 1,
+      "costoMovimiento": 1,
+      "modDefensa": 1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 2,
+      "y": 2,
+      "costoMovimiento": 3,
+      "modDefensa": -1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 2,
+      "y": 3,
+      "costoMovimiento": 2,
+      "modDefensa": 1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 2,
+      "y": 4,
+      "costoMovimiento": 2,
+      "modDefensa": 1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 2,
+      "y": 5,
+      "costoMovimiento": 1,
+      "modDefensa": -1,
+      "modMovimiento": 0
+    },
+    {
+      "x": 2,
+      "y": 6,
+      "costoMovimiento": 1,
+      "modDefensa": 1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 3,
+      "y": 0,
+      "costoMovimiento": 3,
+      "modDefensa": -1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 3,
+      "y": 1,
+      "costoMovimiento": 2,
+      "modDefensa": 1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 3,
+      "y": 2,
+      "costoMovimiento": 3,
+      "modDefensa": 0,
+      "modMovimiento": 1
+    },
+    {
+      "x": 3,
+      "y": 3,
+      "costoMovimiento": 3,
+      "modDefensa": -1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 3,
+      "y": 4,
+      "costoMovimiento": 1,
+      "modDefensa": 0,
+      "modMovimiento": -1
+    },
+    {
+      "x": 3,
+      "y": 5,
+      "costoMovimiento": 3,
+      "modDefensa": 0,
+      "modMovimiento": 1
+    },
+    {
+      "x": 3,
+      "y": 6,
+      "costoMovimiento": 1,
+      "modDefensa": -1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 4,
+      "y": 0,
+      "costoMovimiento": 2,
+      "modDefensa": 0,
+      "modMovimiento": 0
+    },
+    {
+      "x": 4,
+      "y": 1,
+      "costoMovimiento": 1,
+      "modDefensa": 1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 4,
+      "y": 2,
+      "costoMovimiento": 2,
+      "modDefensa": 1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 4,
+      "y": 3,
+      "costoMovimiento": 3,
+      "modDefensa": 0,
+      "modMovimiento": 0
+    },
+    {
+      "x": 4,
+      "y": 4,
+      "costoMovimiento": 1,
+      "modDefensa": 1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 4,
+      "y": 5,
+      "costoMovimiento": 2,
+      "modDefensa": 0,
+      "modMovimiento": 0
+    },
+    {
+      "x": 4,
+      "y": 6,
+      "costoMovimiento": 3,
+      "modDefensa": -1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 5,
+      "y": 0,
+      "costoMovimiento": 1,
+      "modDefensa": 1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 5,
+      "y": 1,
+      "costoMovimiento": 3,
+      "modDefensa": 0,
+      "modMovimiento": 1
+    },
+    {
+      "x": 5,
+      "y": 2,
+      "costoMovimiento": 1,
+      "modDefensa": 0,
+      "modMovimiento": 1
+    },
+    {
+      "x": 5,
+      "y": 3,
+      "costoMovimiento": 1,
+      "modDefensa": -1,
+      "modMovimiento": 0
+    },
+    {
+      "x": 5,
+      "y": 4,
+      "costoMovimiento": 1,
+      "modDefensa": 0,
+      "modMovimiento": 1
+    },
+    {
+      "x": 5,
+      "y": 5,
+      "costoMovimiento": 1,
+      "modDefensa": 1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 5,
+      "y": 6,
+      "costoMovimiento": 1,
+      "modDefensa": 1,
+      "modMovimiento": -1
+    },
+    {
+      "x": 6,
+      "y": 0,
+      "costoMovimiento": 3,
+      "modDefensa": -1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 6,
+      "y": 1,
+      "costoMovimiento": 1,
+      "modDefensa": -1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 6,
+      "y": 2,
+      "costoMovimiento": 2,
+      "modDefensa": -1,
+      "modMovimiento": 1
+    },
+    {
+      "x": 6,
+      "y": 3,
+      "costoMovimiento": 1,
+      "modDefensa": -1,
+      "modMovimiento": 0
+    },
+    {
+      "x": 6,
+      "y": 4,
+      "costoMovimiento": 1,
+      "modDefensa": 1,
+      "modMovimiento": 0
+    },
+    {
+      "x": 6,
+      "y": 5,
+      "costoMovimiento": 1,
+      "modDefensa": -1,
+      "modMovimiento": 0
+    },
+    {
+      "x": 6,
+      "y": 6,
+      "costoMovimiento": 3,
+      "modDefensa": 1,
+      "modMovimiento": -1
+    }
+  ],
+  "filas": 7,
+  "columnas": 7,
+  "turnoActual": "Científicos",
+  "contadorTurnos": 3
+}
