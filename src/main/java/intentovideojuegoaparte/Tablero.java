@@ -1,74 +1,52 @@
 package intentovideojuegoaparte;
 
-import java.util.Random;
+
+import java.util.Arrays;
 
 public class Tablero {
-    private final Casilla[][] casillas;
-    private final int filas;
-    private final int columnas;
+    private int filas;
+    private int columnas;
+    private Casilla[][] casillas;
 
     public Tablero(int filas, int columnas) {
         this.filas = filas;
         this.columnas = columnas;
-        this.casillas = new Casilla[filas][columnas];
-        inicializarCasillas();
-    }
-
-    private void inicializarCasillas() {
-        Random rand = new Random();
-        for (int i = 0; i < filas; i++) {
-            for (int j = 0; j < columnas; j++) {
-                int costoMovimiento = 1 + rand.nextInt(3); // 1-3
-                int modDefensa = rand.nextInt(3) - 1;       // -1 a +1
-                int modMovimiento = rand.nextInt(3) - 1;    // -1 a +1
-                casillas[i][j] = new Casilla(costoMovimiento, modDefensa, modMovimiento);
+        casillas = new Casilla[filas][columnas];
+        // Inicializa casillas con valores por defecto
+        for(int i = 0; i < filas; i++) {
+            for(int j = 0; j < columnas; j++) {
+                casillas[i][j] = new Casilla(i, j, 1, 0, 0);
             }
         }
     }
 
+
     public Casilla getCasilla(int x, int y) {
-        if (estaDentroDelTablero(x, y)) {
-            return casillas[x][y];
-        }
-        return null;
+        if(x < 0 || y < 0 || x >= filas || y >= columnas) return null;
+        return casillas[x][y];
     }
-
     public void setCasilla(int x, int y, Casilla casilla) {
-        if (estaDentroDelTablero(x, y)) {
-            casillas[x][y] = casilla;
-        }
+        if(x < 0 || y < 0 || x >= filas || y >= columnas) return;
     }
 
-    public boolean estaDentroDelTablero(int x, int y) {
-        return x >= 0 && x < filas && y >= 0 && y < columnas;
+    public boolean posicionValida(int x, int y) {
+        return x >= 0 && y >= 0 && x < filas && y < columnas;
     }
 
-    public boolean puedeMoverUnidad(Unidad unidad, int x, int y) {
-        if (!estaDentroDelTablero(x, y)) return false;
+    public boolean moverUnidad(Unidad u, int destX, int destY) {
+        if(!posicionValida(destX, destY)) return false;
+        Casilla origen = getCasilla(u.getPosX(), u.getPosY());
+        Casilla destino = getCasilla(destX, destY);
 
-        Casilla destino = getCasilla(x, y);
-        if (destino.estaOcupada()) return false;
+        if(destino == null || !destino.estaLibre()) return false;
 
-        int costo = destino.getCostoMovimiento() + destino.getModificadorMovimiento();
-        return unidad.getRangoMovimiento() >= costo;
-    }
+        int distancia = Math.abs(destX - u.getPosX()) + Math.abs(destY - u.getPosY());
+        if(distancia > u.getRangoMovimiento()) return false;
 
-    public void moverUnidad(Unidad unidad, int destinoX, int destinoY) {
-        if (!puedeMoverUnidad(unidad, destinoX, destinoY)) return;
-
-        Casilla origen = getCasilla(unidad.getX(), unidad.getY());
-        Casilla destino = getCasilla(destinoX, destinoY);
-
+        // Mover unidad
         origen.setUnidad(null);
-        destino.setUnidad(unidad);
-        unidad.setPosicion(destinoX, destinoY);
-    }
-
-    public int getFilas() {
-        return filas;
-    }
-
-    public int getColumnas() {
-        return columnas;
+        destino.setUnidad(u);
+        u.setPosicion(destX, destY);
+        return true;
     }
 }

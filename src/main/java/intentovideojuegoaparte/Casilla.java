@@ -1,23 +1,30 @@
 package intentovideojuegoaparte;
 
-public class Casilla {
-    private int costoMovimiento;
-    private int modificadorDefensa;
-    private int modificadorMovimiento;
-    private Unidad unidad;
 
-    public Casilla(int costoMovimiento, int modDefensa, int modMovimiento) {
+public class Casilla {
+    private int x, y;
+    private int costoMovimiento;
+    private int modDefensa; // puede ser positivo o negativo
+    private int modMovimiento; // puede ser positivo o negativo
+    private Unidad unidad; // null si está vacía
+
+    public Casilla(int x, int y, int costoMovimiento, int modDefensa, int modMovimiento) {
+        this.x = x;
+        this.y = y;
         this.costoMovimiento = costoMovimiento;
-        this.modificadorDefensa = modDefensa;
-        this.modificadorMovimiento = modMovimiento;
+        this.modDefensa = modDefensa;
+        this.modMovimiento = modMovimiento;
+        this.unidad = null;
     }
 
+    public int getX() { return x; }
+    public int getY() { return y; }
     public int getCostoMovimiento() { return costoMovimiento; }
-    public int getModificadorDefensa() { return modificadorDefensa; }
-    public int getModificadorMovimiento() { return modificadorMovimiento; }
-
-    public boolean estaOcupada() { return unidad != null; }
-
+    public int getModDefensa() { return modDefensa; }
+    public int getModMovimiento() { return modMovimiento; }
     public Unidad getUnidad() { return unidad; }
-    public void setUnidad(Unidad unidad) { this.unidad = unidad; }
+    public void setUnidad(Unidad u) { this.unidad = u; }
+
+    public boolean estaLibre() { return unidad == null; }
 }
+
