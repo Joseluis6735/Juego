@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="intentovideojuegoaparte.GameController"
+            prefHeight="400.0" prefWidth="600.0">
+    <top>
+        <Label fx:id="labelTurno" text="Turno: Jugador 1" BorderPane.alignment="CENTER"/>
+    </top>
+
+    <center>
+        <GridPane fx:id="gridTablero" hgap="2" vgap="2" style="-fx-background-color: #333;" />
+    </center>
+
+</BorderPane>

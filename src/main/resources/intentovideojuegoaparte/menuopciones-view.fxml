@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Button?>
+
+<GridPane fx:controller="intentovideojuegoaparte.MenuOpcionesController"
+          xmlns:fx="http://javafx.com/fxml"
+          alignment="center" hgap="10" vgap="10">
+
+    <Label text="Tamaño del Tablero:" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+    <TextField fx:id="campoFilas" promptText="Filas" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+    <TextField fx:id="campoColumnas" promptText="Columnas" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+
+    <Label text="Facción:" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+    <ChoiceBox fx:id="choiceFaccion" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+
+    <Label text="Personaje 1:" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+    <ChoiceBox fx:id="choiceUnidad1" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+
+    <Label text="Personaje 2:" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+    <ChoiceBox fx:id="choiceUnidad2" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+
+    <Button text="Iniciar Juego" onAction="#iniciarJuego" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+</GridPane>

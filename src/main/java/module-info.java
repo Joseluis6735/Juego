@@ -1,4 +1,4 @@
-module com.example.juego {
+module intentovideojuegoaparte {
     requires javafx.controls;
     requires javafx.fxml;
 
@@ -6,6 +6,6 @@ module com.example.juego {
     requires com.dlsc.formsfx;
     requires org.kordamp.bootstrapfx.core;
 
-    opens com.example.juego to javafx.fxml;
-    exports com.example.juego;
+    opens intentovideojuegoaparte to javafx.fxml;
+    exports intentovideojuegoaparte;
 }
