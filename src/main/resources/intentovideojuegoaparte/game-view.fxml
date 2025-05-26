@@ -1,8 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
@@ -13,13 +9,11 @@
     <top>
         <Label fx:id="labelTurno" text="Turno: Jugador 1" BorderPane.alignment="CENTER"/>
     </top>
-
     <center>
         <GridPane fx:id="gridTablero" hgap="2" vgap="2" style="-fx-background-color: #333;" />
     </center>
-
     <bottom>
         <Button text="Guardar partida" onAction="#guardarPartidaManual" />
     </bottom>
-
 </BorderPane>
+
