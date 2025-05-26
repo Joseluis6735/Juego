@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0b3f9146-d967-4ec7-800e-ed8c34e5354c" name="Changes" comment="tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/CasillaTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/TableroTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/BiologoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/FilologoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/FilosofoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/FisicoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/HistoriadorTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/IngenieroTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/MatematicoTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/PoetaTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -34,7 +40,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/Joseluis6735/Juego.git&quot;,
-    &quot;accountId&quot;: &quot;5252c7dc-8169-4fe8-a8eb-7c0eaff8a609&quot;
+    &quot;accountId&quot;: &quot;22992fc8-9852-4dd5-9714-15caf822776c&quot;
   }
 }</component>
   <component name="MavenImportPreferences">
@@ -52,69 +58,126 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.CasillaTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.ColaTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.GameControllerTest.inicializarJuegoDesdeCarga.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.ListaEnlazadaTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.MenuOpcionesControllerTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TableroTest.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
-    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Java/Juego&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.Main.executor": "Run",
+    "JUnit.BiologoTest.executor": "Coverage",
+    "JUnit.CasillaTest.executor": "Run",
+    "JUnit.ColaTest.executor": "Run",
+    "JUnit.FilologoTest.executor": "Coverage",
+    "JUnit.FilologoTest.testConstructor.executor": "Coverage",
+    "JUnit.FilosofoTest.executor": "Coverage",
+    "JUnit.FisicoTest.executor": "Coverage",
+    "JUnit.GameControllerTest.executor": "Run",
+    "JUnit.GameControllerTest.inicializarJuegoDesdeCarga.executor": "Debug",
+    "JUnit.HistoriadorTest.executor": "Coverage",
+    "JUnit.IngenieroTest.executor": "Coverage",
+    "JUnit.ListaEnlazadaTest.executor": "Run",
+    "JUnit.MatematicoTest.executor": "Coverage",
+    "JUnit.MatematicoTest.testConstructor.executor": "Coverage",
+    "JUnit.MenuOpcionesControllerTest.executor": "Run",
+    "JUnit.PoetaTest.executor": "Coverage",
+    "JUnit.TableroTest.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
+    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Java/Juego",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "reference.settings.project.maven.repository.indices",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.Recents.Supers">
       <recent name="" />
     </key>
     <key name="CreateTestDialog.RecentsKey">
+      <recent name="intentovideojuegoaparte.Unidades" />
       <recent name="intentovideojuegoaparte.Controladores" />
       <recent name="intentovideojuegoaparte.Estructuras" />
       <recent name="intentovideojuegoaparte" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="GameControllerTest.inicializarJuegoDesdeCarga" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.UnidadTest">
+    <configuration name="IngenieroTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Juego" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="intentovideojuegoaparte.Controladores.*" />
+          <option name="PATTERN" value="intentovideojuegoaparte.Unidades.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="intentovideojuegoaparte.Controladores" />
-      <option name="MAIN_CLASS_NAME" value="intentovideojuegoaparte.Controladores.GameControllerTest" />
-      <option name="METHOD_NAME" value="inicializarJuegoDesdeCarga" />
+      <option name="PACKAGE_NAME" value="intentovideojuegoaparte.Unidades" />
+      <option name="MAIN_CLASS_NAME" value="intentovideojuegoaparte.Unidades.IngenieroTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatematicoTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Juego" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="intentovideojuegoaparte.Unidades.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="intentovideojuegoaparte.Unidades" />
+      <option name="MAIN_CLASS_NAME" value="intentovideojuegoaparte.Unidades.MatematicoTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MatematicoTest.testConstructor" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Juego" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="intentovideojuegoaparte.Unidades.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="intentovideojuegoaparte.Unidades" />
+      <option name="MAIN_CLASS_NAME" value="intentovideojuegoaparte.Unidades.MatematicoTest" />
+      <option name="METHOD_NAME" value="testConstructor" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MenuOpcionesControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PoetaTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Juego" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="intentovideojuegoaparte.Controladores.*" />
+          <option name="PATTERN" value="intentovideojuegoaparte.Unidades.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="intentovideojuegoaparte.Controladores" />
-      <option name="MAIN_CLASS_NAME" value="intentovideojuegoaparte.Controladores.MenuOpcionesControllerTest" />
+      <option name="PACKAGE_NAME" value="intentovideojuegoaparte.Unidades" />
+      <option name="MAIN_CLASS_NAME" value="intentovideojuegoaparte.Unidades.PoetaTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="UnidadTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Juego" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="intentovideojuegoaparte.Unidades.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="intentovideojuegoaparte.Unidades" />
+      <option name="MAIN_CLASS_NAME" value="intentovideojuegoaparte.Unidades.UnidadTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -122,8 +185,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MenuOpcionesControllerTest" />
-        <item itemvalue="JUnit.GameControllerTest.inicializarJuegoDesdeCarga" />
+        <item itemvalue="JUnit.UnidadTest" />
+        <item itemvalue="JUnit.PoetaTest" />
+        <item itemvalue="JUnit.MatematicoTest.testConstructor" />
+        <item itemvalue="JUnit.MatematicoTest" />
+        <item itemvalue="JUnit.IngenieroTest" />
       </list>
     </recent_temporary>
   </component>
@@ -156,6 +222,9 @@
       <workItem from="1748267076317" duration="256000" />
       <workItem from="1748267437548" duration="3066000" />
       <workItem from="1748271630985" duration="323000" />
+      <workItem from="1748273404603" duration="410000" />
+      <workItem from="1748273845052" duration="305000" />
+      <workItem from="1748274173148" duration="1288000" />
     </task>
     <task id="LOCAL-00001" summary="si">
       <option name="closed" value="true" />
@@ -208,5 +277,37 @@
     <MESSAGE value="terminado" />
     <MESSAGE value="tests" />
     <option name="LAST_COMMIT_MESSAGE" value="tests" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/Juego$FilosofoTest.ic" NAME="FilosofoTest Coverage Results" MODIFIED="1748275275411" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>intentovideojuegoaparte.Unidades.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Juego$FisicoTest.ic" NAME="FisicoTest Coverage Results" MODIFIED="1748275310808" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>intentovideojuegoaparte.Unidades.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Juego$BiologoTest.ic" NAME="BiologoTest Coverage Results" MODIFIED="1748275326685" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>intentovideojuegoaparte.Unidades.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Juego$PoetaTest.ic" NAME="PoetaTest Coverage Results" MODIFIED="1748275473503" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>intentovideojuegoaparte.Unidades.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Juego$FilologoTest.ic" NAME="FilologoTest Coverage Results" MODIFIED="1748275335277" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>intentovideojuegoaparte.Unidades.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Juego$IngenieroTest.ic" NAME="IngenieroTest Coverage Results" MODIFIED="1748275398896" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>intentovideojuegoaparte.Unidades.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Juego$HistoriadorTest.ic" NAME="HistoriadorTest Coverage Results" MODIFIED="1748275368312" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>intentovideojuegoaparte.Unidades.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Juego$MatematicoTest_testConstructor.ic" NAME="MatematicoTest.testConstructor Coverage Results" MODIFIED="1748275446355" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>intentovideojuegoaparte.Unidades.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Juego$FilologoTest_testConstructor.ic" NAME="FilologoTest.testConstructor Coverage Results" MODIFIED="1748275238274" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>intentovideojuegoaparte.Unidades.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/Juego$MatematicoTest.ic" NAME="MatematicoTest Coverage Results" MODIFIED="1748275431744" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true">
+      <FILTER>intentovideojuegoaparte.Unidades.*</FILTER>
+    </SUITE>
   </component>
 </project>
