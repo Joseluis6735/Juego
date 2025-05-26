@@ -1,0 +1,105 @@
+.root {
+    -fx-background-color: #0A192F;  /* Azul oscuro profundo */
+    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-text-fill: white;
+}
+
+/* Botones con color azul verdoso */
+.button {
+    -fx-background-color: #1ABC9C;  /* Azul verdoso (teal) */
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 10 20;
+    -fx-background-radius: 10;
+}
+
+.button:hover {
+    -fx-background-color: #16A085;  /* Más oscuro al pasar el ratón */
+    -fx-cursor: hand;
+}
+
+/* Opcional: bordes suaves para otros elementos */
+.label {
+    -fx-text-fill: white;
+}
+.choice-box {
+    -fx-background-color: rgba(255, 255, 255, 0.1);  /* Ligera transparencia */
+    -fx-border-color: rgba(255, 255, 255, 0.3);      /* Borde sutil */
+    -fx-border-width: 1;
+    -fx-border-radius: 6;
+    -fx-background-radius: 6;
+    -fx-padding: 6 12;
+    -fx-text-fill: #E0E0E0;                          /* Texto claro */
+    -fx-font-size: 13px;
+    -fx-cursor: hand;
+}
+
+.choice-box:hover {
+    -fx-border-color: #64FFDA;                       /* Acerca el acento en hover */
+}
+
+.choice-box .label {
+    -fx-text-fill: #E0E0E0;
+}
+
+/* Flecha desplegable */
+.choice-box .arrow-button {
+    -fx-background-color: transparent;
+}
+.choice-box .arrow {
+    -fx-shape: "M0,0 L4,4 L8,0 Z";                    /* Triángulo básico */
+    -fx-background-color: #64FFDA;
+    -fx-padding: 4;
+    -fx-background-radius: 4;
+}
+
+/* Lista desplegada */
+.choice-box .list-view {
+    -fx-background-color: #1e1e2f;                   /* Fondo oscuro */
+    -fx-border-color: #333;
+    -fx-border-radius: 6;
+}
+.choice-box .list-cell {
+    -fx-text-fill: #E0E0E0;
+    -fx-padding: 6 12;
+}
+.choice-box .list-cell:hover {
+    -fx-background-color: rgba(100, 255, 218, 0.15);
+}
+.choice-box .list-cell:selected {
+    -fx-background-color: #64FFDA22;
+}
+.choice-box-popup,
+.context-menu {
+    -fx-background-color:
+            linear-gradient(
+                    from 0% 0% to 100% 100%,
+                    rgba(10, 10, 20, 0.85),
+                    rgba(20, 20, 40, 0.85)
+            );
+    -fx-border-color: #00FFF6;
+    -fx-border-width: 2;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    /* Glow más suave: menor blur y menos opacidad */
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 246, 0.4), 6, 0.5, 0, 0);
+    -fx-padding: 6 0;
+}
+
+/* ── HOVER SOBRE OPCIÓN ── */
+.choice-box-popup .menu-item:hover,
+.context-menu .menu-item:hover {
+    -fx-background-color: rgba(0, 255, 246, 0.15);
+    /* Inner glow más suave */
+    -fx-effect: innershadow(gaussian, rgba(0, 255, 246, 0.4), 6, 0.4, 0, 0);
+}
+
+/* ── FLECHA DEL CHOICEBOX ── */
+.choice-box .arrow {
+    -fx-shape: "M0,0 L6,6 L12,0 Z";
+    -fx-background-color: #00FFF6;
+    -fx-padding: 4;
+    /* Glow más discreto */
+    -fx-effect: dropshadow(gaussian, rgba(0, 255, 246, 0.4), 6, 0.4, 0, 0);
+}
