@@ -1,5 +1,6 @@
 package intentovideojuegoaparte;
 
+import intentovideojuegoaparte.Unidades.Unidad;
 
 public class Casilla {
     private int costoMovimiento;

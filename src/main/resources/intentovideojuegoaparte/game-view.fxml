@@ -4,7 +4,7 @@
 
 <BorderPane xmlns="http://javafx.com/javafx"
             xmlns:fx="http://javafx.com/fxml"
-            fx:controller="intentovideojuegoaparte.GameController"
+            fx:controller="intentovideojuegoaparte.Controladores.GameController"
             prefHeight="400.0" prefWidth="600.0">
     <top>
         <Label fx:id="labelTurno" text="Turno: Jugador 1" BorderPane.alignment="CENTER"/>

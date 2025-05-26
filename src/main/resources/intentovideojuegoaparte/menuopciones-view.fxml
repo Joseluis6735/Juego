@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
 
-<GridPane fx:controller="intentovideojuegoaparte.MenuOpcionesController"
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Button?>
+
+<GridPane fx:controller="intentovideojuegoaparte.Controladores.MenuOpcionesController"
           xmlns:fx="http://javafx.com/fxml"
           alignment="center" hgap="10" vgap="10">
 

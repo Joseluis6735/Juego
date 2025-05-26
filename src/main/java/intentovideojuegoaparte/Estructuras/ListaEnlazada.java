@@ -1,9 +1,12 @@
-package intentovideojuegoaparte;
+package intentovideojuegoaparte.Estructuras;
 
-public class ListaEnlazada<T> {
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+
+public class ListaEnlazada<T> implements Iterable<T> {
     private Nodo<T> cabeza;
 
-    public static class Nodo<T> {
+    public  static class Nodo<T> {
         public T valor;
         public Nodo<T> siguiente;
 
@@ -32,6 +35,7 @@ public class ListaEnlazada<T> {
             cabeza = cabeza.siguiente;
             return;
         }
+
         Nodo<T> actual = cabeza;
         while (actual.siguiente != null) {
             if (actual.siguiente.valor.equals(elemento)) {
@@ -66,6 +70,26 @@ public class ListaEnlazada<T> {
     public Nodo<T> getCabeza() {
         return cabeza;
     }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new IteradorLista();
+    }
+
+    private class IteradorLista implements Iterator<T> {
+        private Nodo<T> actual = cabeza;
+
+        @Override
+        public boolean hasNext() {
+            return actual != null;
+        }
+
+        @Override
+        public T next() {
+            if (!hasNext()) throw new NoSuchElementException();
+            T valor = actual.valor;
+            actual = actual.siguiente;
+            return valor;
+        }
+    }
 }
-
-

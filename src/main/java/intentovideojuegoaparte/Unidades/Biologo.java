@@ -1,4 +1,4 @@
-package intentovideojuegoaparte;
+package intentovideojuegoaparte.Unidades;
 
 public class Biologo extends Unidad {
     public Biologo(String faccion) {

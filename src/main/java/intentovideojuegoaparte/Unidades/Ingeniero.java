@@ -1,4 +1,4 @@
-package intentovideojuegoaparte;
+package intentovideojuegoaparte.Unidades;
 
 public class Ingeniero extends Unidad {
     public Ingeniero(String faccion) {

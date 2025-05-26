@@ -1,8 +1,8 @@
-package intentovideojuegoaparte;
+package intentovideojuegoaparte.Unidades;
 
 public abstract class Unidad {
     protected String nombre;
-    protected int hp;
+    public int hp;
     protected int ataque;
     protected int defensa;
     protected int rangoMovimiento;

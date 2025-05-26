@@ -1,6 +1,6 @@
 package intentovideojuegoaparte;
 
-
+import intentovideojuegoaparte.Unidades.Unidad;
 import java.util.Random;
 
 public class Tablero {

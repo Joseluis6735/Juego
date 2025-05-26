@@ -1,4 +1,4 @@
-package intentovideojuegoaparte;
+package intentovideojuegoaparte.Unidades;
 
 public class Poeta extends Unidad {
     public Poeta(String faccion) {

@@ -1,8 +1,11 @@
-package intentovideojuegoaparte;
+package intentovideojuegoaparte.Controladores;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
-import javafx.animation.PauseTransition;
+import intentovideojuegoaparte.*;
+import intentovideojuegoaparte.Estructuras.Cola;
+import intentovideojuegoaparte.Estructuras.ListaEnlazada;
+import intentovideojuegoaparte.Unidades.*;
 import javafx.fxml.FXML;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
@@ -13,7 +16,6 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
-import javafx.util.Duration;
 
 import java.io.File;
 import java.io.FileWriter;
@@ -22,21 +24,20 @@ import java.io.PrintWriter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
-import java.util.stream.Collectors;
 
 public class GameController {
 
-    private boolean turnoJugador = true;
+    private Cola<Unidad> colaTurnos = new Cola<>();
     private Unidad unidadSeleccionada = null;
     private String faccionJugador;
-    private List<Unidad> unidadesJugador = new ArrayList<>();
-    private List<Unidad> unidadesIA = new ArrayList<>();
+    private ListaEnlazada<Unidad> unidadesJugador = new ListaEnlazada<>();
+    private ListaEnlazada<Unidad> unidadesIA = new ListaEnlazada<>();
     private Tablero tablero;
-    private int indiceIA = 0;
     private int contadorTurnos = 0;
     private static final int TURNO_RECLUTAMIENTO = 5;
     private List<int[]> casillasResaltadas = new ArrayList<>();
-    private List<String> logAcciones = new ArrayList<>();
+    private ListaEnlazada<String> logAcciones = new ListaEnlazada<>();
+    private boolean juegoTerminado = false;
 
     @FXML private GridPane gridTablero;
     @FXML private Label labelTurno;
@@ -50,13 +51,19 @@ public class GameController {
         this.tablero = tablero;
         this.faccionJugador = faccionJugador;
 
+        this.unidadesJugador = new ListaEnlazada<>();
+        this.unidadesIA = new ListaEnlazada<>();
+        this.colaTurnos = new Cola<>();
+
         for (Unidad u : todasUnidades) {
             if (u.getFaccion().equals(faccionJugador)) {
-                unidadesJugador.add(u);
+                unidadesJugador.agregar(u);
             } else {
-                unidadesIA.add(u);
+                unidadesIA.agregar(u);
             }
+            colaTurnos.encolar(u);
         }
+
         dibujarTablero();
     }
 
@@ -104,7 +111,12 @@ public class GameController {
     }
 
     private void manejarClick(int x, int y) {
-        if (!turnoJugador) {
+        Unidad actual = colaTurnos.frente();
+        if (actual == null) {
+            labelTurno.setText("No hay unidades en turno.");
+            return;
+        }
+        if (!actual.getFaccion().equals(faccionJugador)) {
             labelTurno.setText("Es turno de la IA");
             return;
         }
@@ -141,19 +153,20 @@ public class GameController {
                     tablero.getCasilla(x, y).setUnidad(null);
                 }
 
-                logAcciones.add(seleccionada.getNombre() + " ataca a " + enemigo.getNombre() +
+                logAcciones.agregar(seleccionada.getNombre() + " ataca a " + enemigo.getNombre() +
                         " en (" + x + "," + y + ")");
 
                 unidadSeleccionada = null;
                 casillasResaltadas.clear();
                 dibujarTablero();
 
-                // Turno IA directo
-                turnoJugador = false;
+                // Fin del turno del jugador
+                colaTurnos.desencolar();
+                colaTurnos.encolar(actual);
+
                 ejecutarTurnoIA();
                 dibujarTablero();
                 verificarFinDePartida();
-                turnoJugador = true;
                 labelTurno.setText("Tu turno");
             } else {
                 labelTurno.setText("Enemigo fuera de rango");
@@ -164,18 +177,19 @@ public class GameController {
         // Mover
         if (!casilla.estaOcupada() && tablero.puedeMoverUnidad(seleccionada, x, y)) {
             tablero.moverUnidad(seleccionada, x, y);
-            logAcciones.add(seleccionada.getNombre() + " se mueve a (" + x + "," + y + ")");
+            logAcciones.agregar(seleccionada.getNombre() + " se mueve a (" + x + "," + y + ")");
 
             unidadSeleccionada = null;
             casillasResaltadas.clear();
             dibujarTablero();
 
-            // Turno IA directo
-            turnoJugador = false;
+            // Fin del turno del jugador
+            colaTurnos.desencolar();
+            colaTurnos.encolar(actual);
+
             ejecutarTurnoIA();
             dibujarTablero();
             verificarFinDePartida();
-            turnoJugador = true;
             labelTurno.setText("Tu turno");
         } else {
             labelTurno.setText("Movimiento inválido");
@@ -189,7 +203,7 @@ public class GameController {
         return faccion.equals("Científicos") ? "Humanistas" : "Científicos";
     }
 
-    private void generarRefuerzo(String faccion, List<Unidad> lista) {
+    private void generarRefuerzo(String faccion, ListaEnlazada<Unidad> lista) {
         for (Unidad unidad : lista) {
             if (!unidad.estaViva()) continue;
 
@@ -209,7 +223,8 @@ public class GameController {
                     Unidad refuerzo = crearUnidadAleatoria(faccion);
                     refuerzo.setPosicion(nuevoX, nuevoY);
                     tablero.getCasilla(nuevoX, nuevoY).setUnidad(refuerzo);
-                    lista.add(refuerzo);
+
+                    lista.agregar(refuerzo); // ⬅ cambio aquí: usamos tu método personalizado
 
                     labelTurno.setText("¡" + faccion + " recibe refuerzos!");
                     return; // solo uno por turno
@@ -245,48 +260,68 @@ public class GameController {
     }
 
     private void ejecutarTurnoIA() {
+        Unidad ia = colaTurnos.frente();
+
+        if (ia == null || !ia.getFaccion().equals(obtenerFaccionOpuesta(faccionJugador))) {
+            return; // no es turno de la IA
+        }
+
         boolean accionRealizada = false;
 
-        for (Unidad ia : unidadesIA) {
-            if (!ia.estaViva()) continue;
-            if (accionRealizada) continue;
-
+        if (ia.estaViva()) {
             Unidad objetivo = encontrarUnidadJugadorMasCercana(ia);
-            if (objetivo == null) continue;
+            if (objetivo != null) {
+                int dx = objetivo.getX() - ia.getX();
+                int dy = objetivo.getY() - ia.getY();
+                int distancia = Math.abs(dx) + Math.abs(dy);
 
-            int dx = objetivo.getX() - ia.getX();
-            int dy = objetivo.getY() - ia.getY();
-            int distancia = Math.abs(dx) + Math.abs(dy);
+                if (distancia <= ia.getRangoAtaque()) {
+                    ia.atacar(objetivo);
+                    logAcciones.agregar(ia.getNombre() + " ataca a " + objetivo.getNombre() +
+                            " en (" + objetivo.getX() + "," + objetivo.getY() + ")");
 
-            if (distancia <= ia.getRangoAtaque()) {
-                ia.atacar(objetivo);
-                logAcciones.add(ia.getNombre() + " ataca a " + objetivo.getNombre() +
-                        " en (" + objetivo.getX() + "," + objetivo.getY() + ")");
+                    if (!objetivo.estaViva()) {
+                        tablero.getCasilla(objetivo.getX(), objetivo.getY()).setUnidad(null);
+                        logAcciones.agregar(objetivo.getNombre() + " ha sido eliminado.");
+                    }
 
-                if (!objetivo.estaViva()) {
-                    tablero.getCasilla(objetivo.getX(), objetivo.getY()).setUnidad(null);
-                    logAcciones.add(objetivo.getNombre() + " ha sido eliminado.");
-                }
-
-                accionRealizada = true;
-            } else {
-                int nuevaX = ia.getX() + Integer.signum(dx);
-                int nuevaY = ia.getY() + Integer.signum(dy);
-                if (tablero.puedeMoverUnidad(ia, nuevaX, nuevaY)) {
-                    tablero.moverUnidad(ia, nuevaX, nuevaY);
-                    logAcciones.add(ia.getNombre() + " se mueve a (" + nuevaX + "," + nuevaY + ")");
                     accionRealizada = true;
+                } else {
+                    int nuevaX = ia.getX() + Integer.signum(dx);
+                    int nuevaY = ia.getY() + Integer.signum(dy);
+                    if (tablero.puedeMoverUnidad(ia, nuevaX, nuevaY)) {
+                        tablero.moverUnidad(ia, nuevaX, nuevaY);
+                        logAcciones.agregar(ia.getNombre() + " se mueve a (" + nuevaX + "," + nuevaY + ")");
+                        accionRealizada = true;
+                    }
                 }
             }
         }
 
-        // Aumentar turno solo después de que la IA actuó
-        contadorTurnos++;
+        // Rotar el turno (IA sale de la cola y vuelve al final)
+        colaTurnos.desencolar();
+        colaTurnos.encolar(ia);
 
-        // Cada 5 turnos se generan refuerzos
-        if (contadorTurnos % 5 == 0) {
-            generarRefuerzo(faccionJugador, unidadesJugador);
-            generarRefuerzo(obtenerFaccionOpuesta(faccionJugador), unidadesIA);
+        // Aumentar turno solo después de que la IA actuó
+        if (accionRealizada) {
+            contadorTurnos++;
+
+            if (contadorTurnos % 5 == 0) {
+                generarRefuerzo(faccionJugador, unidadesJugador);
+                generarRefuerzo(obtenerFaccionOpuesta(faccionJugador), unidadesIA);
+            }
+        }
+
+        dibujarTablero();
+        verificarFinDePartida();
+
+        // Actualizar mensaje según quién sigue
+        Unidad siguiente = colaTurnos.frente();
+        if (siguiente != null && siguiente.getFaccion().equals(faccionJugador)) {
+            labelTurno.setText("Tu turno");
+        } else {
+            labelTurno.setText("Es turno de la IA");
+            ejecutarTurnoIA(); // IA sigue si hay más unidades IA en la cola
         }
     }
 
@@ -334,12 +369,23 @@ public class GameController {
     }
 
     private void verificarFinDePartida() {
-        boolean jugadorVivo = unidadesJugador.stream().anyMatch(Unidad::estaViva);
-        boolean iaViva = unidadesIA.stream().anyMatch(Unidad::estaViva);
+        if (juegoTerminado) return;
+
+        boolean jugadorVivo = false;
+        for (Unidad u : unidadesJugador) {
+            jugadorVivo = jugadorVivo || u.estaViva();
+        }
+
+        boolean iaViva = false;
+        for (Unidad u : unidadesIA) {
+            iaViva = iaViva || u.estaViva();
+        }
 
         if (!jugadorVivo) {
+            juegoTerminado = true;
             mostrarMensajeFinal("¡La IA ha ganado!");
         } else if (!iaViva) {
+            juegoTerminado = true;
             mostrarMensajeFinal("¡Has ganado!");
         }
     }
@@ -386,7 +432,9 @@ public class GameController {
         EstadoJuego estado = new EstadoJuego();
         estado.filas = tablero.getFilas();
         estado.columnas = tablero.getColumnas();
-        estado.turnoActual = turnoJugador ? faccionJugador : obtenerFaccionOpuesta(faccionJugador);
+
+        Unidad actual = colaTurnos.frente();
+        estado.turnoActual = actual.getFaccion();
         estado.contadorTurnos = contadorTurnos;
 
         estado.casillas = new ArrayList<>();
@@ -405,8 +453,12 @@ public class GameController {
 
         estado.unidades = new ArrayList<>();
         List<Unidad> todas = new ArrayList<>();
-        todas.addAll(unidadesJugador);
-        todas.addAll(unidadesIA);
+        for (Unidad u : unidadesJugador) {
+            todas.add(u);
+        }
+        for (Unidad u : unidadesIA) {
+            todas.add(u);
+        }
 
         for (Unidad u : todas) {
             EstadoUnidad eu = new EstadoUnidad();
@@ -428,21 +480,32 @@ public class GameController {
         }
     }
 
-    public void inicializarJuegoDesdeCarga(Tablero tablero, List<Unidad> unidades, String turno, int turnosJugados) {
+    public void inicializarJuegoDesdeCarga(Tablero tablero, ListaEnlazada<Unidad> unidades, String turno, int turnosJugados) {
         this.tablero = tablero;
         this.contadorTurnos = turnosJugados;
-        this.turnoJugador = turno.equals(faccionJugador);
 
-        this.unidadesJugador = unidades.stream()
-                .filter(u -> u.getFaccion().equals(faccionJugador))
-                .collect(Collectors.toList());
+        this.unidadesJugador = new ListaEnlazada<>();
+        this.unidadesIA = new ListaEnlazada<>();
+        this.colaTurnos = new Cola<>();
 
-        this.unidadesIA = unidades.stream()
-                .filter(u -> !u.getFaccion().equals(faccionJugador))
-                .collect(Collectors.toList());
+        for (Unidad u : unidades) {
+            if (u.getFaccion().equals(faccionJugador)) {
+                unidadesJugador.agregar(u);
+            } else {
+                unidadesIA.agregar(u);
+            }
+            colaTurnos.encolar(u);
+        }
 
         dibujarTablero();
-        labelTurno.setText(turnoJugador ? "Tu turno" : "Es turno de la IA");
+
+        Unidad actual = colaTurnos.frente();
+        if (actual.getFaccion().equals(faccionJugador)) {
+            labelTurno.setText("Tu turno");
+        } else {
+            labelTurno.setText("Es turno de la IA");
+            ejecutarTurnoIA();
+        }
     }
 
     public void setFaccionJugador(String faccion) {

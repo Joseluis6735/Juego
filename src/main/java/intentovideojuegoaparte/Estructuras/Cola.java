@@ -1,4 +1,4 @@
-package intentovideojuegoaparte;
+package intentovideojuegoaparte.Estructuras;
 
 public class Cola<T> {
     private Nodo<T> frente;

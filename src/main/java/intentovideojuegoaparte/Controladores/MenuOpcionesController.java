@@ -1,13 +1,15 @@
-package intentovideojuegoaparte;
+package intentovideojuegoaparte.Controladores;
 
 import com.google.gson.Gson;
+import intentovideojuegoaparte.*;
+import intentovideojuegoaparte.Estructuras.ListaEnlazada;
+import intentovideojuegoaparte.Unidades.*;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Alert;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
@@ -18,16 +20,11 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MenuOpcionesController {
-    @FXML
-    private TextField campoFilas;
-    @FXML
-    private TextField campoColumnas;
-    @FXML
-    private ChoiceBox<String> choiceFaccion;
-    @FXML
-    private ChoiceBox<String> choiceUnidad1;
-    @FXML
-    private ChoiceBox<String> choiceUnidad2;
+    @FXML private TextField campoFilas;
+    @FXML private TextField campoColumnas;
+    @FXML private ChoiceBox<String> choiceFaccion;
+    @FXML private ChoiceBox<String> choiceUnidad1;
+    @FXML private ChoiceBox<String> choiceUnidad2;
 
     @FXML
     public void initialize() {
@@ -107,7 +104,7 @@ public class MenuOpcionesController {
             unidades.add(ia2);
 
             // Cargar la vista del juego
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("game-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/intentovideojuegoaparte/game-view.fxml"));
             Parent root = loader.load();
 
             GameController gameController = loader.getController();
@@ -150,13 +147,13 @@ public class MenuOpcionesController {
             }
 
             // Reconstruir unidades
-            List<Unidad> unidades = new ArrayList<>();
+            ListaEnlazada<Unidad> unidades = new ListaEnlazada<>();
             for (EstadoUnidad eu : estado.unidades) {
                 Unidad u = crearUnidadDesdeTipo(eu.tipo, eu.faccion);
                 u.setPosicion(eu.x, eu.y);
                 u.hp = eu.hp;
                 tablero.getCasilla(eu.x, eu.y).setUnidad(u);
-                unidades.add(u);
+                unidades.agregar(u);
             }
 
             // Cargar vista del juego
