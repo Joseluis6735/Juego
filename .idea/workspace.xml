@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b3f9146-d967-4ec7-800e-ed8c34e5354c" name="Changes" comment="tests">
-      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/BiologoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/FilologoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/FilosofoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/FisicoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/HistoriadorTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/IngenieroTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/MatematicoTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/Unidades/PoetaTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-    </list>
+    <list default="true" id="0b3f9146-d967-4ec7-800e-ed8c34e5354c" name="Changes" comment="Juevo V-final" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -25,6 +15,7 @@
       <list>
         <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
@@ -86,6 +77,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
     "last_opened_file_path": "C:/Java/Juego",
+    "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -106,18 +98,16 @@
       <recent name="intentovideojuegoaparte" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.UnidadTest">
-    <configuration name="IngenieroTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="Application.Main">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="intentovideojuegoaparte.Main" />
       <module name="Juego" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="intentovideojuegoaparte.Unidades.*" />
+          <option name="PATTERN" value="intentovideojuegoaparte.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="intentovideojuegoaparte.Unidades" />
-      <option name="MAIN_CLASS_NAME" value="intentovideojuegoaparte.Unidades.IngenieroTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,19 +175,19 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Main" />
         <item itemvalue="JUnit.UnidadTest" />
         <item itemvalue="JUnit.PoetaTest" />
         <item itemvalue="JUnit.MatematicoTest.testConstructor" />
         <item itemvalue="JUnit.MatematicoTest" />
-        <item itemvalue="JUnit.IngenieroTest" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.23654.189" />
-        <option value="bundled-js-predefined-d6986cc7102b-822845ee3bb5-JavaScript-IU-243.23654.189" />
+        <option value="bundled-jdk-9823dce3aa75-125ca727e0f0-intellij.indexing.shared.core-IU-243.24978.46" />
+        <option value="bundled-js-predefined-d6986cc7102b-76f8388c3a79-JavaScript-IU-243.24978.46" />
       </set>
     </attachedChunks>
   </component>
@@ -225,6 +215,7 @@
       <workItem from="1748273404603" duration="410000" />
       <workItem from="1748273845052" duration="305000" />
       <workItem from="1748274173148" duration="1288000" />
+      <workItem from="1748286933222" duration="2924000" />
     </task>
     <task id="LOCAL-00001" summary="si">
       <option name="closed" value="true" />

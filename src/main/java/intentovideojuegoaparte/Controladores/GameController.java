@@ -224,10 +224,10 @@ public class GameController {
                     refuerzo.setPosicion(nuevoX, nuevoY);
                     tablero.getCasilla(nuevoX, nuevoY).setUnidad(refuerzo);
 
-                    lista.agregar(refuerzo); // ⬅ cambio aquí: usamos tu método personalizado
+                    lista.agregar(refuerzo);
 
                     labelTurno.setText("¡" + faccion + " recibe refuerzos!");
-                    return; // solo uno por turno
+                    return;
                 }
             }
         }

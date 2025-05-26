@@ -157,7 +157,7 @@ public class MenuOpcionesController {
             }
 
             // Cargar vista del juego
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("game-view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/intentovideojuegoaparte/game-view.fxml"));
             Parent root = loader.load();
 
             GameController controller = loader.getController();
