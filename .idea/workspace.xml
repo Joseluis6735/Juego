@@ -4,7 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0b3f9146-d967-4ec7-800e-ed8c34e5354c" name="Changes" comment="si" />
+    <list default="true" id="0b3f9146-d967-4ec7-800e-ed8c34e5354c" name="Changes" comment="tests">
+      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/CasillaTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/intentovideojuegoaparte/TableroTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -14,6 +18,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="JUnit5 Test Class" />
       </list>
     </option>
   </component>
@@ -50,8 +55,17 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.CasillaTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.ColaTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.GameControllerTest.inicializarJuegoDesdeCarga.executor&quot;: &quot;Debug&quot;,
+    &quot;JUnit.ListaEnlazadaTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.MenuOpcionesControllerTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TableroTest.executor&quot;: &quot;Run&quot;,
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -64,6 +78,55 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="intentovideojuegoaparte.Controladores" />
+      <recent name="intentovideojuegoaparte.Estructuras" />
+      <recent name="intentovideojuegoaparte" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="GameControllerTest.inicializarJuegoDesdeCarga" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Juego" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="intentovideojuegoaparte.Controladores.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="intentovideojuegoaparte.Controladores" />
+      <option name="MAIN_CLASS_NAME" value="intentovideojuegoaparte.Controladores.GameControllerTest" />
+      <option name="METHOD_NAME" value="inicializarJuegoDesdeCarga" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MenuOpcionesControllerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Juego" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="intentovideojuegoaparte.Controladores.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="intentovideojuegoaparte.Controladores" />
+      <option name="MAIN_CLASS_NAME" value="intentovideojuegoaparte.Controladores.MenuOpcionesControllerTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.MenuOpcionesControllerTest" />
+        <item itemvalue="JUnit.GameControllerTest.inicializarJuegoDesdeCarga" />
+      </list>
+    </recent_temporary>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -90,6 +153,9 @@
       <workItem from="1748258504609" duration="204000" />
       <workItem from="1748258711108" duration="3326000" />
       <workItem from="1748265887392" duration="653000" />
+      <workItem from="1748267076317" duration="256000" />
+      <workItem from="1748267437548" duration="3066000" />
+      <workItem from="1748271630985" duration="323000" />
     </task>
     <task id="LOCAL-00001" summary="si">
       <option name="closed" value="true" />
@@ -115,7 +181,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748261240484</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="terminado">
+      <option name="closed" value="true" />
+      <created>1748267202511</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1748267202511</updated>
+    </task>
+    <task id="LOCAL-00005" summary="tests">
+      <option name="closed" value="true" />
+      <created>1748271471890</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1748271471890</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,6 +205,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="si" />
-    <option name="LAST_COMMIT_MESSAGE" value="si" />
+    <MESSAGE value="terminado" />
+    <MESSAGE value="tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="tests" />
   </component>
 </project>

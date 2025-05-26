@@ -181,7 +181,7 @@ public class MenuOpcionesController {
         }
     }
 
-    private Unidad crearUnidadDesdeTipo(String tipo, String faccion) {
+    protected Unidad crearUnidadDesdeTipo(String tipo, String faccion) {
         return switch (tipo) {
             case "Ingeniero" -> new Ingeniero(faccion);
             case "Matematico" -> new Matematico(faccion);
